@@ -16,3 +16,97 @@ img {
   display: block;
   max-width: 100%;
 }
+
+#datetime-picker {
+  box-sizing: border-box;
+  font-size: large;
+  font-weight: bold;
+  font-size: large;
+}
+
+.btn-wrapper {
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  gap: 30px;
+}
+
+.btn-wrapper > button {
+  width: 125px;
+  height: 60px;
+
+  text-transform: uppercase;
+  font-size: 20px;
+  border: 1px solid grey;
+  border-radius: 5px;
+}
+
+.calendar-wrapper,
+.timer {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  flex-direction: row;
+}
+
+.timer-btn {
+  font-size: large;
+}
+
+.form {
+  display: flex;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.value {
+  font-size: xxx-large;
+}
+
+.field.days {
+  color: blue;
+}
+
+.field.hours {
+  color: green;
+}
+
+.field.minutes {
+  color: orange;
+}
+
+.field.seconds {
+  color: red;
+}
+
+.label {
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.form__field {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  margin-right: 20px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.form input {
+  height: 25px;
+  font-size: 14px;
+}
+
+.form__btn {
+  margin: auto 0 0 0;
+  height: 25px;
+  font-size: 15px;
+  font-weight: bold;
+}
