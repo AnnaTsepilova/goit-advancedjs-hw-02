@@ -5,26 +5,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Promise generator</title>
     
-    <script type="module" crossorigin src="/goit-advancedjs-hw-02/assets/modulepreload-polyfill-ec808ebb.js"></script>
-    <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/common-24e32714.css">
+    <script type="module" crossorigin src="/goit-advancedjs-hw-02/commonHelpers3.js"></script>
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/modulepreload-polyfill-ec808ebb.js">
+    <link rel="modulepreload" crossorigin href="/goit-advancedjs-hw-02/assets/vendor-651d7991.js">
+    <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/vendor-80d0dc0f.css">
+    <link rel="stylesheet" href="/goit-advancedjs-hw-02/assets/common-9516eca5.css">
   </head>
   <body>
     <p><a href="index.html">Go back</a></p>
 
     <form class="form">
-      <label>
+      <label class="form__field">
         First delay (ms)
         <input type="number" name="delay" required />
       </label>
-      <label>
+      <label class="form__field">
         Delay step (ms)
         <input type="number" name="step" required />
       </label>
-      <label>
+      <label class="form__field">
         Amount
         <input type="number" name="amount" required />
       </label>
-      <button type="submit">Create promises</button>
+      <button class="form__btn" type="submit">Create promises</button>
     </form>
 
     
