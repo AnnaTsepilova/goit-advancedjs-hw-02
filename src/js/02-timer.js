@@ -6,6 +6,7 @@ import 'izitoast/dist/css/iziToast.min.css';
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
+  resetBtn: document.querySelector('button[data-reset]'),
   dateValue: document.querySelector('#datetime-picker'),
   daysField: document.querySelector('[data-days]'),
   hoursField: document.querySelector('[data-hours]'),
@@ -18,6 +19,7 @@ let deltaTime = null;
 let timeStampSelectedDate = null;
 
 refs.startBtn.setAttribute('disabled', 'disabled');
+refs.resetBtn.setAttribute('disabled', 'disabled');
 
 const options = {
   enableTime: true,
@@ -34,6 +36,7 @@ const options = {
 flatpickr(refs.dateValue, options);
 
 refs.startBtn.addEventListener('click', onBtnStartClick);
+refs.resetBtn.addEventListener('click', onBtnResetClick);
 
 function checkDate(date, btn) {
   if (date.getTime() < Date.now()) {
@@ -50,16 +53,34 @@ function checkDate(date, btn) {
 
 function onBtnStartClick() {
   refs.startBtn.setAttribute('disabled', 'disabled');
+  refs.dateValue.setAttribute('disabled', 'disabled');
+  refs.resetBtn.removeAttribute('disabled');
+
   intervalId = setInterval(() => {
     deltaTime -= 1000;
 
     if (timeStampSelectedDate <= Date.now()) {
       clearInterval(intervalId);
+      refs.dateValue.removeAttribute('disabled');
     }
 
     let { days, hours, minutes, seconds } = convertMs(deltaTime);
     updateTimerFace({ days, hours, minutes, seconds });
   }, 1000);
+}
+
+function onBtnResetClick() {
+  clearInterval(intervalId);
+  refs.dateValue.removeAttribute('disabled');
+  refs.startBtn.removeAttribute('disabled');
+  refs.resetBtn.setAttribute('disabled', 'disabled');
+
+  flatpickr(refs.dateValue, options);
+
+  refs.daysField.textContent = '00';
+  refs.hoursField.textContent = '00';
+  refs.minutesField.textContent = '00';
+  refs.secondsField.textContent = '00';
 }
 
 function convertMs(ms) {
