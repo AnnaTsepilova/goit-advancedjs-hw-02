@@ -39,6 +39,7 @@ function onFormSubmit(event) {
       maxWidth: '300px',
     });
   }
+  form.reset();
 }
 
 function createPromise(position, delay) {
